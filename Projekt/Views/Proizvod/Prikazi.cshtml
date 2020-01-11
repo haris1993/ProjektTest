@@ -1,0 +1,85 @@
+﻿
+@using Projekt.ViewModels;
+@model ProizvodPrikaziViewModel
+
+@{
+    ViewData["Title"] = "Prikazi";
+
+    var porukaSucess = (string)TempData["porukaSucess"];
+    var porukaWarning = (string)TempData["porukaWarning"];
+    var porukaError = (string)TempData["porukaError"];
+
+
+
+}
+
+@if (porukaSucess != null)
+{
+    <div class="alert alert-success" role="alert" id="porukaBox">
+        @porukaSucess
+    </div>
+
+}
+
+@if (porukaWarning != null)
+{
+    <div class="alert alert-warning" role="alert" id="porukaBox">
+        @porukaWarning
+    </div>
+
+}
+
+@if (porukaError != null)
+{
+    <div class="alert alert-danger" role="alert" id="porukaBox">
+        @porukaError
+    </div>
+
+}
+
+
+
+<h1>Prikazi</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Jedinica mjere</th>
+            <th>Cijena</th>
+            <th>Akcija</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var k in Model.Rows)
+        {
+
+
+            <tr>
+                <td>@k.Naziv</td>
+                <td>@k.JedinicaMjere</td>
+                <td>@k.Cijena KM</td>
+
+
+                <td>
+                    <a href="/Proizvod/Obrisi?ProizvodID=@k.ProizvodId" class="btn btn-danger">Obrisi</a>
+                    <a href="/Proizvod/UrediForm?ProizvodID=@k.ProizvodId" class="btn btn-info">Uredi</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+
+    window.setTimeout(function () {
+        $("#porukaBox").fadeOut(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 4000);
+</script>
+
+<a href="/Proizvod/DodajForm" class="btn btn-success">Dodaj novi</a>

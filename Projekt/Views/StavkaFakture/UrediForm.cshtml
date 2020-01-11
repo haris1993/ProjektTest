@@ -1,0 +1,55 @@
+﻿@using Projekt.Models;
+
+@model Projekt.ViewModels.StavkaFaktureUrediViewModel
+
+@{
+    ViewData["Title"] = "DodajForm";
+
+}
+
+<h1>DodajForm</h1>
+
+
+
+<form asp-action="Snimi">
+
+
+    @Html.HiddenFor(s => s.StavkaFaktureId)
+
+    <div class="form-group">
+        <label>Datum</label>
+
+
+        <input asp-for="Datum" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Proizvod</label>
+
+
+        @Html.DropDownListFor(x => x.ProizvodId, Model.Proizvod, "", new { @class = "for-control" })
+
+    </div>
+
+    <div class="form-group">
+        <label>Faktura</label>
+
+
+        @Html.DropDownListFor(x => x.FakturaID, Model.Faktura, "", new { @class = "for-control" })
+
+    </div>
+
+    <div class="form-group">
+        <label>Količina</label>
+
+
+        @Html.TextBoxFor(x => x.Kolicina)
+
+    </div>
+
+
+
+    <input type="submit" value="Snimi" />
+
+</form>

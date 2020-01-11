@@ -1,0 +1,65 @@
+﻿@using Projekt.Models;
+
+@model Projekt.ViewModels.KupacUrediViewModel
+
+@{
+    ViewData["Title"] = "DodajForm";
+
+}
+
+<h1>DodajForm</h1>
+
+
+
+<form asp-action="Snimi">
+
+
+    @Html.HiddenFor(s => s.KupacId)
+
+    <div class="form-group">
+        <label>Naziv</label>
+
+
+        <input asp-for="Naziv" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Adresa</label>
+
+
+        <input asp-for="Adresa" />
+
+    </div>
+
+    <div class="form-group">
+        <label>PDV broj</label>
+
+
+        <input asp-for="PDVBroj" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Opština rođenja </label>
+
+
+        <select asp-for="OpstinaRodjenjaId" asp-items="Model.OpstinaStavke"></select>
+
+
+    </div>
+
+    <div class="form-group">
+        <label>Opština prebivališta </label>
+
+
+
+        <select asp-for="OpstinaPrebivalistaId" asp-items="Model.OpstinaStavke"></select>
+
+
+    </div>
+
+
+    <input type="submit" value="Snimi" />
+
+</form>

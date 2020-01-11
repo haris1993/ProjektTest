@@ -1,0 +1,52 @@
+﻿@model Projekt.ViewModels.LoginViewModel
+
+<div >
+    <div >
+        @using (@Html.BeginForm())
+        {
+            <div >
+                <div> <h1>Log In</h1></div>
+
+
+
+
+                <div >
+                    <div >
+                        
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "Username" })
+
+                    </div>
+                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Username) </span>
+
+                </div>
+                <div >
+                    <div >
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Password" })
+
+                    </div>
+                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Password) </span>
+                </div>
+
+
+
+
+                <div>
+                    <input type="submit" value="Login" class="btn btn-success btn-block" />
+
+                </div>
+
+                <div >
+                    <p style="color:red">@ViewBag.error</p>
+                </div>
+
+
+
+            </div>
+
+        }
+    </div>
+
+</div>
+
+
+

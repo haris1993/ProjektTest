@@ -1,0 +1,48 @@
+﻿@using Projekt.Models;
+
+@model Projekt.ViewModels.ProizvodUrediViewModel
+
+@{
+    ViewData["Title"] = "DodajForm";
+
+}
+
+<h1>DodajForm</h1>
+
+
+
+<form asp-action="Snimi">
+
+
+    @Html.HiddenFor(s => s.ProizvodId)
+
+    <div class="form-group">
+        <label>Naziv</label>
+
+
+        <input asp-for="Naziv" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Jedinica mjere</label>
+
+
+        <input asp-for="JedinicaMjere" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Cijena</label>
+
+
+        <input asp-for="Cijena" />
+
+    </div>
+
+   
+
+
+    <input type="submit" value="Snimi" />
+
+</form>
